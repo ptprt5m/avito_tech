@@ -1,0 +1,129 @@
+@import 'commons/_variables';
+@import 'commons/_mixins';
+
+// Common styles
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $white;
+  position: relative;
+  min-height: 100vh;
+}
+
+.flex {
+  @include flex;
+}
+
+.flexColumn {
+  @include flexColumn;
+}
+
+.wh100 {
+  @include wh(100%);
+}
+
+.wh50 {
+  @include wh(50%);
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+
+//Header Styles
+
+.header {
+  &__wrapper {
+    margin: 30px 0;
+
+    &-block {
+      margin: 0 auto;
+      justify-content: flex-start;
+    }
+
+    span {
+      @include links;
+      margin-left: 10px;
+    }
+    img {
+      @include wh(25px, 25px);
+    }
+
+  }
+  &__title {
+    @include text(20px, 25px, $white, normal);
+    text-align: center;
+    background-color: $black;
+    width: 200px;
+    border-radius: 100px;
+    padding: 10px 0;
+    margin-left: 35px;
+  }
+}
+
+//Main Styles
+
+.main {
+  &__wrapper {
+
+  }
+}
+
+//Footer Styles
+
+.footer {
+  &__wrapper {
+    padding: 10px 0;
+    width: 300px;
+    margin: 0 auto 30px;
+    background-color: $black;
+    border-radius: 100px;
+  }
+  &__title {
+    @include text(20px, 25px, $white, normal);
+    text-align: center;
+  }
+}
+
+
+
+//HomePage Style
+
+.homepage {
+  &-head {
+    justify-content: flex-start;
+    margin-bottom: 25px;
+    &__title {
+      @include text(24px, 30px, $black, 600);
+      margin-right: 10px;
+    }
+  }
+  &-news {
+    &_item {
+      align-items: flex-start;
+      &:not(:last-child) {
+        margin-bottom: 15px;
+      }
+      div {
+        margin-bottom: 5px;
+      }
+      &-title {
+        @include text(18px, 22px, $black, 500);
+        @include links(50%);
+      }
+      &-name, &-date, &-rating {
+        @include text(16px, 19px, $gray, normal);
+        margin: 0 7px;
+      }
+      &-name {
+        margin: 0 7px;
+      }
+    }
+  }
+}
