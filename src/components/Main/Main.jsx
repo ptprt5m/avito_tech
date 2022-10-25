@@ -1,6 +1,7 @@
 import React from 'react';
 import {Route, Switch} from "react-router-dom";
 import HomePageContainer from "../HomePage/HomePageContainer";
+import NewsPageContainer from "../NewsPage/NewsPageContainer";
 
 const Main = () => {
     return (
@@ -8,7 +9,8 @@ const Main = () => {
             <div className='wrapper'>
                 <div className='main__wrapper'>
                     <Switch>
-                        <Route path={'/'} render={() => <HomePageContainer />}/>
+                        <Route path={'/'} exact render={() => <HomePageContainer />}/>
+                        <Route path={'/:newsId'} render={() => <NewsPageContainer />}/>
                     </Switch>
                 </div>
             </div>

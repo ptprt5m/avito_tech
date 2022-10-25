@@ -21,6 +21,9 @@ const NewsItem = ({newsItem}) => {
                 <p className='homepage-news_item-rating'>
                     Score: {newsItem.score}
                 </p>
+                <p className='homepage-news_item-comments'>
+                    Comments: {newsItem.kids ? newsItem.kids.length : 0}
+                </p>
             </div>
         </div>
     );

@@ -7,9 +7,22 @@
   box-sizing: border-box;
 }
 
+html{
+  height: 100%;
+}
+
 body {
   background-color: $white;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 100vh;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
 }
 
@@ -35,10 +48,15 @@ body {
   margin: 0 auto;
 }
 
+.defaultLink {
+  @include links;
+}
+
 
 //Header Styles
 
 .header {
+  flex: 0 0 auto;
   &__wrapper {
     margin: 30px 0;
 
@@ -48,8 +66,10 @@ body {
     }
 
     span {
+      @include text(20px, 25px, $black, normal);
       @include links;
-      margin-left: 10px;
+      margin: 0 15px;
+      @include wh(25px, 25px);
     }
     img {
       @include wh(25px, 25px);
@@ -63,13 +83,13 @@ body {
     width: 200px;
     border-radius: 100px;
     padding: 10px 0;
-    margin-left: 35px;
   }
 }
 
 //Main Styles
 
 .main {
+  flex: 1 0 auto;
   &__wrapper {
 
   }
@@ -78,10 +98,11 @@ body {
 //Footer Styles
 
 .footer {
+  flex: 0 0 auto;
   &__wrapper {
     padding: 10px 0;
     width: 300px;
-    margin: 0 auto 30px;
+    margin: 30px auto;
     background-color: $black;
     border-radius: 100px;
   }
@@ -117,12 +138,65 @@ body {
         @include text(18px, 22px, $black, 500);
         @include links(50%);
       }
-      &-name, &-date, &-rating {
+      &-name, &-date, &-rating, &-comments {
         @include text(16px, 19px, $gray, normal);
         margin: 0 7px;
       }
       &-name {
         margin: 0 7px;
+      }
+    }
+  }
+}
+
+
+
+//News Item Page Style
+
+.newsItem {
+  &__titleBlock {
+    margin: 5px 10px;
+    &-title {
+      @include text(20px, 25px, $black, 500);
+      margin: 0 5px;
+      &:after {
+        content: ' – ';
+      }
+    }
+    &-link {
+      @include text(20px, 25px, $gray, 400);
+      @include links;
+    }
+  }
+  &__descBlock {
+    &-desc {
+      @include text(18px, 22px, $gray, 400);
+      margin: 0 7px;
+    }
+  }
+  &__comments {
+    margin: 30px 10px 10px;
+    &-title {
+      @include text(18px, 22px, $black, 500);
+      margin: 0 5px 5px;
+      border-bottom: 2px $black solid;
+      padding-bottom: 3px;
+    }
+    &-block {
+      max-width: 900px;
+      text-align: left;
+      align-items: flex-start;
+      &_text {
+        @include text(18px, 22px, $black, 400);
+        padding: 5px 10px;
+      }
+      &_header {
+        background-color: $lightGray;
+        margin: 5px 0;
+        padding: 5px 10px;
+        span {
+          @include text(18px, 22px, $darkGray, 400);
+        }
       }
     }
   }
