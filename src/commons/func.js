@@ -4,3 +4,7 @@ export const limitStr = (str, n, symb) => {
     symb = symb || '...';
     return str.substr(0, n - symb.length) + symb;
 }
+
+export const decodeMarkup = (text) => {
+    return {__html: text}
+}

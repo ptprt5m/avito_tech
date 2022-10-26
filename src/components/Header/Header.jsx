@@ -20,9 +20,10 @@ const Header = ({getNewsTC}) => {
         return () => {
             clearTimeout(timer);
         }
-    }, [seconds])
+    }, [getNewsTC, seconds])
 
     const refresh = () => {
+        setSeconds(59)
         getNewsTC()
     }
 

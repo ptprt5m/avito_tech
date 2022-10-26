@@ -87,6 +87,7 @@ export const getNewsTC = () => {
 export const getNewsItemTC = (newsItem) => {
     return async (dispatch) => {
         dispatch(clearNews())
+        dispatch(clearComments())
         let response = await api.getNewsItem(newsItem)
         dispatch(setNewsItem(response))
     }
