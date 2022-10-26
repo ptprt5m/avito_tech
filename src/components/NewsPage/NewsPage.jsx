@@ -2,8 +2,9 @@ import React, {useEffect} from 'react';
 import {useParams} from "react-router-dom";
 import Preloader from "../__commons/Preloader/Preloader";
 import Comments from "../Comments/Comments";
+import {timeFormat} from "../../commons/func";
 
-const NewsPage = ({currentNewsItem, isFetching, comments, getCommentsTC, getCurrentNewsItemTC}) => {
+const NewsPage = ({currentNewsItem, isFetching, getCurrentNewsItemTC}) => {
 
     const params = useParams()
     const id = params.newsId
@@ -25,11 +26,11 @@ const NewsPage = ({currentNewsItem, isFetching, comments, getCommentsTC, getCurr
                     <div className='newsItem__descBlock flex'>
                         <span className='newsItem__descBlock-desc'>by: {currentNewsItem.by}</span>
                         <span
-                            className='newsItem__descBlock-desc'>posted: {Math.round((Math.floor(Date.now() / 1000) - currentNewsItem.time) / 60)} minutes ago</span>
+                            className='newsItem__descBlock-desc'>posted: {timeFormat(currentNewsItem.time)}</span>
                         <span className='newsItem__descBlock-desc'>comments: {currentNewsItem.descendants}</span>
                     </div>
                     {currentNewsItem.descendants > 0 ?
-                        <Comments comments={comments} currentNewsItem={currentNewsItem} getCommentsTC={getCommentsTC} /> : null}
+                        <Comments currentNewsItem={currentNewsItem} /> : null}
                 </div>}
         </div>
     );

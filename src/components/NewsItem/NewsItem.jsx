@@ -1,5 +1,5 @@
 import React from 'react';
-import {limitStr} from "../../commons/func";
+import {limitStr, timeFormat} from "../../commons/func";
 import {NavLink} from "react-router-dom";
 
 const NewsItem = ({newsItem}) => {
@@ -16,7 +16,7 @@ const NewsItem = ({newsItem}) => {
             </div>
             <div className='flex'>
                 <p className='homepage-news_item-date'>
-                    Posted: {Math.round((Math.floor(Date.now() / 1000) - newsItem.time) / 60)} minutes ago
+                    Posted: {timeFormat(newsItem.time)}
                 </p>
                 <p className='homepage-news_item-rating'>
                     Score: {newsItem.score}

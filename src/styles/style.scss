@@ -52,6 +52,32 @@ body {
   @include links;
 }
 
+.fetchingDiv {
+  @include wh(100%, 70px);
+  @include flexColumn;
+  max-width: 900px;
+  justify-content: center;
+  background: linear-gradient(-45deg, #e0e0e0, #a2a2a2, #cecece, #eeeeee);
+  background-size: 400% 400%;
+  animation: gradient 3s ease infinite;
+  margin: 10px 0;
+  border-radius: 100px;
+  span {
+    @include text(18px, 22px, $white, 400);
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
 
 //Header Styles
 
@@ -219,6 +245,10 @@ body {
         span {
           @include text(18px, 22px, $darkGray, 400);
         }
+      }
+      &_kids {
+        width: 90%;
+        margin: 0 auto;
       }
     }
   }

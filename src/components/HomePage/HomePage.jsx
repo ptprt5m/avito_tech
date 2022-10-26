@@ -12,9 +12,6 @@ const HomePage = ({news, newsItems, getNewsItemTC, isFetching}) => {
         }
     }, [news])
 
-    console.log(news)
-    console.log(newsItems)
-
     return (
         <div className='homepage'>
             {isFetching ? <Preloader/> :
@@ -27,7 +24,5 @@ const HomePage = ({news, newsItems, getNewsItemTC, isFetching}) => {
         </div>
     );
 };
-
-//.sort((a, b) => b.time - a.time)
 
 export default HomePage;
