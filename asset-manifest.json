@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/avito_tech/static/css/main.6c858be3.css",
-    "main.js": "/avito_tech/static/js/main.000c2eb8.js",
+    "main.js": "/avito_tech/static/js/main.9e7b75f8.js",
     "static/js/787.355cc44f.chunk.js": "/avito_tech/static/js/787.355cc44f.chunk.js",
     "static/media/copper_bold.svg": "/avito_tech/static/media/copper_bold.148eb0e63dc1f2ea4690.svg",
     "static/media/montserrat-v15-latin_cyrillic-700.ttf": "/avito_tech/static/media/montserrat-v15-latin_cyrillic-700.6cbb516e629a7542e7a8.ttf",
@@ -40,11 +40,11 @@
     "static/media/copper_bold.woff": "/avito_tech/static/media/copper_bold.31d6cfe0d16ae931b73c.woff",
     "static/media/copper_bold.woff2": "/avito_tech/static/media/copper_bold.31d6cfe0d16ae931b73c.woff2",
     "main.6c858be3.css.map": "/avito_tech/static/css/main.6c858be3.css.map",
-    "main.000c2eb8.js.map": "/avito_tech/static/js/main.000c2eb8.js.map",
+    "main.9e7b75f8.js.map": "/avito_tech/static/js/main.9e7b75f8.js.map",
     "787.355cc44f.chunk.js.map": "/avito_tech/static/js/787.355cc44f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6c858be3.css",
-    "static/js/main.000c2eb8.js"
+    "static/js/main.9e7b75f8.js"
   ]
 }
