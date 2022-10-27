@@ -13,12 +13,12 @@
 
 ## Технологии
 
-### React\
-### Redux\
-### Axios\
-### SASS\
-### React-Redux\
-### React-Router-Dom\
-### Redux-Thunk\
+#### - React
+#### - Redux
+#### - Axios
+#### - SASS
+#### - React-Redux
+#### - React-Router-Dom
+#### - Redux-Thunk
 
 # avito_tech
