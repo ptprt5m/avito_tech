@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
-import NewsItem from "../NewsItem/NewsItem";
 import Preloader from "../__commons/Preloader/Preloader";
+import NewsItemContainer from "../NewsItem/NewsItemContainer";
 
 const HomePage = ({news, newsItems, getNewsItemTC, isFetching}) => {
 
@@ -17,7 +17,7 @@ const HomePage = ({news, newsItems, getNewsItemTC, isFetching}) => {
             {isFetching ? <Preloader/> :
                 <div className='homepage-news'>
                     {newsItems.sort((a, b) => (a && b) ? b.time - a.time : null).map(newsItem => {
-                        return newsItem ? <NewsItem newsItem={newsItem}/> : null
+                        return newsItem ? <NewsItemContainer newsItem={newsItem}/> : null
                     })}
                 </div>
             }

@@ -4,7 +4,6 @@ import {getCurrentNewsItemTC} from "../../redux/NewsReducer";
 
 let mapStateToProps = (state) => {
     return {
-        isFetching: state.news.isFetching,
         currentNewsItem: state.news.currentNewsItem
     }
 }

@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {decodeMarkup, timeFormat} from "../../commons/func";
 import {api} from "../../api/api";
-import LazyLoad from 'react-lazyload'
+import FetchingDiv from "../__commons/FetchingDiv/FetchingDiv";
 
 const Comment = ({commentId}) => {
 
@@ -25,7 +25,7 @@ const Comment = ({commentId}) => {
     }, [commentId])
 
     if (!Object.keys(comment).length) {
-        return <div className='fetchingDiv'><span>Loading...</span></div>
+        return <FetchingDiv/>
     }
 
     const handleKids = () => {
@@ -33,12 +33,10 @@ const Comment = ({commentId}) => {
             return;
         }
         return kids.map((kidId) => (
-            <LazyLoad key={kidId}>
-                <Comment
-                    key={kidId}
-                    commentId={kidId}
-                />
-            </LazyLoad>
+            <Comment
+                key={kidId}
+                commentId={kidId}
+            />
         ));
     }
 
@@ -56,7 +54,7 @@ const Comment = ({commentId}) => {
             {comment.deleted ?
                 <span className='newsItem__comments-block_text'
                       style={{fontFamily: 'monospace'}}>commentary deleted</span> :
-                <div className='newsItem__comments-block_text'
+                <div className='newsItem__comments-block_text wh100'
                      dangerouslySetInnerHTML={decodeMarkup(comment.text)}/>}
             {comment.kids ? <div className='newsItem__comments-block_replies' onClick={repliesToggle}>
                 Replies {replies ? <span>&#8593;</span> : <span>&#8595;</span>}

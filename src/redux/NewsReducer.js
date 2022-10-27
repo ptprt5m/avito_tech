@@ -77,10 +77,8 @@ export const getNewsItemTC = (newsItem) => {
 
 export const getCurrentNewsItemTC = (newsItem) => {
     return async (dispatch) => {
-        dispatch(toggleIsFetching(true))
         let response = await api.getNewsItem(newsItem)
         dispatch(setCurrentNewsItem(response))
-        dispatch(toggleIsFetching(false))
     }
 }
 
