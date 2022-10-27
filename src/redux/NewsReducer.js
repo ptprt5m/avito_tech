@@ -5,6 +5,7 @@ const SET_NEWS_ITEM = 'news/SET_NEWS_ITEM';
 const CLEAR_NEWS = 'news/CLEAR_NEWS';
 const SET_CURRENT_NEWS_ITEM = 'news/SET_CURRENT_NEWS_ITEM';
 const TOGGLE_IS_FETCHING = 'news/TOGGLE_IS_FETCHING';
+const TOGGLE_IS_FETCHING_CURRENT_ITEM = 'news/TOGGLE_IS_FETCHING_CURRENT_ITEM';
 
 let initialState = {
     news: [],
@@ -12,7 +13,8 @@ let initialState = {
     currentNewsItem: {
         kids: []
     },
-    isFetching: false
+    isFetching: false,
+    isFetchingCurrentItem: false
 }
 
 const newsReducer = (state = initialState, action) => {
@@ -21,6 +23,12 @@ const newsReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isFetching: action.isFetching
+            }
+        }
+        case TOGGLE_IS_FETCHING_CURRENT_ITEM: {
+            return {
+                ...state,
+                isFetchingCurrentItem: action.isFetchingCurrentItem
             }
         }
         case SET_NEWS: {
@@ -57,6 +65,7 @@ export const setNewsItem = (newsItem) => ({type: SET_NEWS_ITEM, newsItem})
 export const setCurrentNewsItem = (newsItem) => ({type: SET_CURRENT_NEWS_ITEM, newsItem})
 export const clearNews = () => ({type: CLEAR_NEWS})
 export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching})
+export const toggleIsFetchingCurrentItem = (isFetchingCurrentItem) => ({type: TOGGLE_IS_FETCHING_CURRENT_ITEM, isFetchingCurrentItem})
 
 export const getNewsTC = () => {
     return async (dispatch) => {
@@ -77,8 +86,10 @@ export const getNewsItemTC = (newsItem) => {
 
 export const getCurrentNewsItemTC = (newsItem) => {
     return async (dispatch) => {
+        dispatch(toggleIsFetchingCurrentItem(true))
         let response = await api.getNewsItem(newsItem)
         dispatch(setCurrentNewsItem(response))
+        dispatch(toggleIsFetchingCurrentItem(false))
     }
 }
 
