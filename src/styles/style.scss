@@ -183,6 +183,15 @@ body {
   &__comments {
     margin: 30px 10px 10px;
     word-wrap: break-word;
+    &-titleBlock {
+      align-items: flex-start;
+      img {
+        @include wh(25px, 25px);
+      }
+      span {
+        @include links;
+      }
+    }
     &-title {
       @include text(18px, 22px, $black, 500);
       margin: 0 5px 5px;

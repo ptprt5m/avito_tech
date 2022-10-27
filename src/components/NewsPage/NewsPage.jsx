@@ -17,6 +17,9 @@ const NewsPage = ({isFetchingCurrentItem, currentNewsItem, getCurrentNewsItemTC}
     const fetch = () => {
         return <Preloader/>
     }
+    const updateComments = () => {
+        getCurrentNewsItemTC(id)
+    }
 
     return (
         <div className='flexColumn'>
@@ -35,7 +38,7 @@ const NewsPage = ({isFetchingCurrentItem, currentNewsItem, getCurrentNewsItemTC}
                         <span className='newsItem__descBlock-desc'>comments: {currentNewsItem.descendants}</span>
                     </div>
                     {currentNewsItem.descendants > 0 ?
-                        <Comments currentNewsItem={currentNewsItem}/> : null}
+                        <Comments updateComments={updateComments} currentNewsItem={currentNewsItem}/> : null}
                 </div>
             }
         </div>
